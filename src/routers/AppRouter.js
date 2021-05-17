@@ -10,9 +10,6 @@ import ScrollTop from "components/common/ScrollTop";
 import ThemeToggler from "components/common/ThemeToggler";
 import ProgressTrigger from "components/hoc/Progress";
 
-import Error from "views/error/Error";
-import PageNotFound from "views/error/PageNotFound";
-
 export const history = createBrowserHistory();
 
 /* eslint-disable react/jsx-boolean-value */
@@ -35,12 +32,6 @@ const AppRouter = () => (
       <div className="theme__toggler-desktop">
         <ThemeToggler />
       </div>
-      <main id="main">
-        <Switch>
-          <Route component={Error} exact={true} path={route.ERROR} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </main>
       <Footer />
     </>
   </Router>
