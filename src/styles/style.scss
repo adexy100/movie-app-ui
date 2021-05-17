@@ -3,7 +3,7 @@
 @import "node_modules/react-modal-video/scss/modal-video.scss";
 
 // ---------------------------
-// 0SETTINGS
+// 01 - SETTINGS
 
 @import "./SETTINGS/breakpoints";
 @import "./SETTINGS/colors";
@@ -31,16 +31,38 @@
 // 04 - COMPONENTS
 
 @import "./COMPONENTS/search";
+@import "./COMPONENTS/tooltip";
 @import "./COMPONENTS/loader";
 @import "./COMPONENTS/progressloader";
+@import "./COMPONENTS/pagination";
+@import "./COMPONENTS/image-loader";
+@import "./COMPONENTS/card";
+@import "./COMPONENTS/container";
 @import "./COMPONENTS/navigation";
+@import "./COMPONENTS/video-modal";
+@import "./COMPONENTS/modal";
+@import "./COMPONENTS/image";
 @import "./COMPONENTS/footer";
+@import "./COMPONENTS/filter";
+@import "./COMPONENTS/tabs";
+@import "./COMPONENTS/slider";
+@import "./COMPONENTS/grid";
+@import "./COMPONENTS/poster";
+@import "./COMPONENTS/people";
+@import "./COMPONENTS/backdrop";
+@import "./COMPONENTS/reviews";
+@import "./COMPONENTS/collapse";
 @import "./COMPONENTS/scrolltop";
 @import "./COMPONENTS/toast";
 @import "./COMPONENTS/theme";
 
 // ---------------------------
 // 04 - PAGES
+
+@import "./PAGES/movies";
+@import "./PAGES/view";
+@import "./PAGES/genres";
+@import "./PAGES/error";
 
 // ---------------------------
 // 04 - UTILS
