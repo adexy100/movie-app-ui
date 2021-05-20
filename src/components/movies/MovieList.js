@@ -1,5 +1,8 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 // templateCount = number of items shown blank as loading template
 const MovieList = ({
@@ -10,8 +13,31 @@ const MovieList = ({
   templateCount,
   isLoading,
 }) => {
+  const settings = {
+    arrows: false,
+    dots: false,
+    className: "center",
+    centerMode: true,
+    centerPadding: "60px",
+    draggable: true,
+    slidesToShow: 4,
+    rows: 2,
+    responsive: [
+      {
+        breakpoint: 478,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          centerMode: false,
+          infinite: false,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className={gridClass}>
+    <Slider {...settings}>
       {!movies && templateCount != 0
         ? new Array(templateCount)
             .fill({})
@@ -33,7 +59,7 @@ const MovieList = ({
               favorites={favorites}
             />
           ))}
-    </div>
+    </Slider>
   );
 };
 

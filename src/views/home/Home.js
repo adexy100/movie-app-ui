@@ -56,7 +56,7 @@ const App = (props) => {
             </div>
             <MovieList
               favorites={favorites}
-              movies={upcomingMovies.results.slice(0, 10)}
+              movies={upcomingMovies.results.slice(0, 20)}
             />
             <button
               className="button--primary m-auto"
@@ -77,7 +77,7 @@ const App = (props) => {
             </div>
             <MovieList
               favorites={favorites}
-              movies={topRatedMovies.results.slice(0, 10)}
+              movies={topRatedMovies.results.slice(0, 20)}
             />
             <button
               className="button--primary m-auto"
