@@ -1,28 +1,28 @@
-import * as act from "constants/constants";
+import * as act from 'constants/constants';
 
-export default (
-  state = {
-    search: {
-      query: "",
-      tv: {},
-      movies: {},
-      people: {},
-    },
-    recentSearch: [],
+export default (state = {
+  search: {
+    query: '',
+    tv: {},
+    movies: {},
+    people: {}
   },
-  action
-) => {
+  recentSearch: []
+}, action) => {
   switch (action.type) {
     case act.ADD_SEARCH_HISTORY:
       return {
         ...state,
-        recentSearch: [...state.recentSearch, action.payload],
+        recentSearch: [
+          ...state.recentSearch, 
+          action.payload
+        ]
       };
       break;
     case act.CLEAR_SEARCH_HISTORY:
       return {
         ...state,
-        recentSearch: [],
+        recentSearch: []
       };
       break;
     case act.SEARCH_SUCCESS:
@@ -32,8 +32,8 @@ export default (
           ...state.search,
           movies: action.payload.movies,
           tv: action.payload.tv,
-          people: action.payload.people,
-        },
+          people: action.payload.people
+        }
       };
       break;
     case act.SEARCH_MOVIES_SUCCESS:
@@ -41,8 +41,8 @@ export default (
         ...state,
         search: {
           ...state.search,
-          movies: action.payload,
-        },
+          movies: action.payload
+        }
       };
       break;
     case act.SEARCH_TV_SHOWS_SUCCESS:
@@ -50,8 +50,8 @@ export default (
         ...state,
         search: {
           ...state.search,
-          tv: action.payload,
-        },
+          tv: action.payload
+        }
       };
       break;
     case act.SEARCH_PEOPLE_SUCCESS:
@@ -59,8 +59,8 @@ export default (
         ...state,
         search: {
           ...state.search,
-          people: action.payload,
-        },
+          people: action.payload
+        }
       };
       break;
     case act.UPDATE_SEARCH_QUERY:
@@ -68,11 +68,11 @@ export default (
         ...state,
         search: {
           ...state.search,
-          query: action.payload,
-        },
+          query: action.payload
+        }
       };
       break;
-    default:
+    default: 
       return state;
   }
 };

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import MoviesSlider from "components/slider/MoviesSlider";
-import MovieList from "components/movies/MovieList";
-import { fetchMainMovies } from "actions/movieActions";
-import { isEmpty } from "helpers/helperFunctions";
-import useDocumentTitle from "hooks/useDocumentTitle";
+import MoviesSlider from 'components/slider/MoviesSlider';
+import MovieList from 'components/movies/MovieList';
+import { fetchMainMovies } from 'actions/movieActions';
+import { isEmpty } from 'helpers/helperFunctions';
+import useDocumentTitle from 'hooks/useDocumentTitle';
 
 const App = (props) => {
   const {
@@ -13,20 +13,19 @@ const App = (props) => {
     topRatedMovies,
     upcomingMovies,
     favorites,
-    lastFetched,
-  } = useSelector((state) => ({
+    lastFetched
+  } = useSelector(state => ({
     popularMovies: state._movies.popularMovies,
     topRatedMovies: state._movies.topRatedMovies,
     upcomingMovies: state._movies.upcomingMovies,
     favorites: state._misc.favorites,
-    lastFetched: state._misc.lastFetched,
+    lastFetched: state._misc.lastFetched
   }));
   const dispatch = useDispatch();
 
   useDocumentTitle();
   useEffect(() => {
-    if (
-      isEmpty(popularMovies) ||
+    if (isEmpty(popularMovies) ||
       isEmpty(topRatedMovies) ||
       isEmpty(upcomingMovies)
     ) {
@@ -42,25 +41,27 @@ const App = (props) => {
           favorites={favorites}
         />
       ) : (
-        <MoviesSlider movies={[{}]} favorites={[]} />
-      )}
+          <MoviesSlider
+            movies={[{}]}
+            favorites={[]}
+          />
+        )}
       <div className="container__wrapper">
         {upcomingMovies.results && (
           <>
             <div className="movie__header">
               <div className="movie__header-title header__title">
-                <br />
-                <br />
+                <br /><br />
                 <h1>Upcoming Movies</h1>
               </div>
             </div>
             <MovieList
               favorites={favorites}
-              movies={upcomingMovies.results.slice(0, 20)}
+              movies={upcomingMovies.results.slice(0, 10)}
             />
             <button
               className="button--primary m-auto"
-              onClick={() => props.history.push("/upcoming")}
+              onClick={() => props.history.push('/upcoming')}
             >
               View All Upcoming Movies
             </button>
@@ -77,11 +78,11 @@ const App = (props) => {
             </div>
             <MovieList
               favorites={favorites}
-              movies={topRatedMovies.results.slice(0, 20)}
+              movies={topRatedMovies.results.slice(0, 10)}
             />
             <button
               className="button--primary m-auto"
-              onClick={() => props.history.push("/top_rated")}
+              onClick={() => props.history.push('/top_rated')}
             >
               View All Top Rated Movies
             </button>
